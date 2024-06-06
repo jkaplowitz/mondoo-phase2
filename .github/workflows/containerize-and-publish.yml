@@ -9,7 +9,7 @@ on:
 # Defines two custom environment variables for the workflow. These are used for the Container registry domain, and a name for the Docker image that this workflow builds.
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: phase1
+  IMAGE_NAME: jkaplowitz/mondoo-phase2
 
 # This is modified from the standard build-and-push-image job as documented by GitHub to fetch the phase1 binary from the asset section of the relevant release before
 # building the Dockerfile. 
