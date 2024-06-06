@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mondoo-deployment
+  labels:
+    app: mondoo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mondoo
+  template:
+    metadata:
+      labels:
+        app: mondoo
+    spec:
+      containers:
+      - name: mondoo
+        image: ghcr.io/jkaplowitz/mondoo-phase2:main
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mondoo-service
+spec:
+  selector:
+    app: mondoo
+  ports:
+  - name: mondoo
+    protocol: TCP
+    port: 80
+    targetPort: 8080
