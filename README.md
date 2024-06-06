@@ -8,4 +8,4 @@ Nothing beyond the standard Go toolchain and standard library, access to the `ph
 
 ### Instructions
 
-Build the Docker image as usual with `docker build .`, but the `phase` binary must first be in the root of this repository.
+When the [jkaplowitz/mondoo-phase1](https://github.com/jkaplowitz/mondoo-phase1) repository publishes a release, it will first build and publish a binary release asset via GitHub Actions and then trigger this repository to build and publish a Docker image. This image will be available to Docker (and Kubernetes) as `ghcr.io/jkaplowitz/mondoo-phase2:main`, configured to listen within the container on port 8080 unless overridden by a PORT environment variable setting, and with port 8080 configured in the Dockerfilie as an exposed port.
